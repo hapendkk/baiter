@@ -1,0 +1,35 @@
+{% if source or headlines or media_url %}
+<section class="results" aria-live="polite">
+    {% if media_url %}
+    <div class="media">
+        <strong>Your {{ media_kind }}</strong>
+        {% if media_kind == 'audio' %}
+        <audio controls src="{{ media_url }}"></audio>
+        {% elif media_kind == 'image' %}
+        <img src="{{ media_url }}" alt="The image you uploaded">
+        {% elif media_kind == 'video' %}
+        <video controls playsinline src="{{ media_url }}"></video>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if source %}
+    <div class="source">
+        <strong>{{ source_title }}</strong>
+        <p>{{ source }}</p>
+    </div>
+    {% endif %}
+
+    {% if headlines %}
+    <h2>Your headlines</h2>
+    <ul class="headlines">
+        {% for headline in headlines %}
+        <li style="--i: {{ forloop.counter0 }}">
+            <p>{{ headline }}</p>
+            <button class="copy" type="button" data-copy="{{ headline }}">Copy</button>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endif %}

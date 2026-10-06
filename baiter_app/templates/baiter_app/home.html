@@ -1,0 +1,34 @@
+{% extends 'baiter_app/base.html' %}
+
+{% block title %}Baiter — Home{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1><span>Boring headlines don't get clicked.</span></h1>
+    <p class="lead">
+        Give Baiter keywords, a recording, a photo or a video.
+        It writes five clickbait headlines in return.
+    </p>
+</section>
+
+<div class="modes">
+    <a class="mode mode--text" href="{% url 'text' %}">
+        <h2>Text</h2>
+        <p>Type a few keywords or a short sentence.</p>
+    </a>
+    <a class="mode mode--audio" href="{% url 'audio' %}">
+        <h2>Audio</h2>
+        <p>Upload speech. Baiter transcribes it first.</p>
+    </a>
+    <a class="mode mode--image" href="{% url 'image' %}">
+        <h2>Image</h2>
+        <p>Upload a photo. Baiter describes it first.</p>
+    </a>
+    <a class="mode mode--video" href="{% url 'video' %}">
+        <h2>Video</h2>
+        <p>Upload a clip. Baiter summarizes what happens first.</p>
+    </a>
+</div>
+
+{% endblock %}

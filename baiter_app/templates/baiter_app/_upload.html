@@ -1,0 +1,12 @@
+<form class="panel" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label class="dropzone">
+        <input class="visually-hidden" type="file" name="{{ field }}" accept="{{ accept }}" required>
+        <strong>{{ prompt }}</strong>
+        <span class="hint">{{ hint }}</span>
+        <span class="file-name" data-file-name></span>
+    </label>
+
+    <button class="btn" type="submit">Generate headlines</button>
+</form>

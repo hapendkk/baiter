@@ -1,0 +1,31 @@
+{% extends 'baiter_app/base.html' %}
+
+{% block title %}Baiter — Text{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>Turn keywords into headlines</h1>
+    <p>Type a few keywords or a short sentence. You get five headlines back.</p>
+</div>
+
+<form class="panel" method="post">
+    {% csrf_token %}
+
+    <label class="field-label" for="keywords">Keywords or a short sentence</label>
+    <input
+        class="field"
+        id="keywords"
+        type="text"
+        name="keywords"
+        placeholder="woman, river, computer monitor"
+        autocomplete="off"
+        required
+    >
+
+    <button class="btn" type="submit">Generate headlines</button>
+</form>
+
+{% include 'baiter_app/_results.html' %}
+
+{% endblock %}

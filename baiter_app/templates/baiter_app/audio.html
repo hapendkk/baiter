@@ -1,0 +1,16 @@
+{% extends 'baiter_app/base.html' %}
+
+{% block title %}Baiter — Audio{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>Turn a recording into headlines</h1>
+    <p>Upload English speech. Baiter transcribes it, then writes five headlines from the transcript.</p>
+</div>
+
+{% include 'baiter_app/_upload.html' with field='audio' accept='audio/*' prompt='Choose an audio file' hint='MP3, WAV, OGG and other audio formats' %}
+
+{% include 'baiter_app/_results.html' with source=text source_title='Transcript' media_kind='audio' %}
+
+{% endblock %}

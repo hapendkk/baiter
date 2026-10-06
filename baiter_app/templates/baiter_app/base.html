@@ -1,0 +1,44 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Baiter{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'baiter_app/style.css' %}">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="logo" href="{% url 'home' %}">Baiter</a>
+
+            <nav class="nav" aria-label="Main">
+                {% with current=request.resolver_match.url_name %}
+                <a href="{% url 'home' %}"{% if current == 'home' %} aria-current="page"{% endif %}>Home</a>
+                <a href="{% url 'text' %}"{% if current == 'text' %} aria-current="page"{% endif %}>Text</a>
+                <a href="{% url 'audio' %}"{% if current == 'audio' %} aria-current="page"{% endif %}>Audio</a>
+                <a href="{% url 'image' %}"{% if current == 'image' %} aria-current="page"{% endif %}>Image</a>
+                <a href="{% url 'video' %}"{% if current == 'video' %} aria-current="page"{% endif %}>Video</a>
+                {% endwith %}
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <p>Baiter works in English only. Keywords, speech and captions should be in English.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'baiter_app/app.js' %}"></script>
+</body>
+</html>

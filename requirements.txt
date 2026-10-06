@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+transformers[torch]
+pydantic
+pytest
+httpx
+django
+pillow
+moonshine-voice
+sentencepiece
+accelerate

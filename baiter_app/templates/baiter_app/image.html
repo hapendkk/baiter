@@ -1,0 +1,16 @@
+{% extends 'baiter_app/base.html' %}
+
+{% block title %}Baiter — Image{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>Turn a photo into headlines</h1>
+    <p>Upload an image. Baiter describes the scene, then writes five headlines from the description.</p>
+</div>
+
+{% include 'baiter_app/_upload.html' with field='image' accept='image/*' prompt='Choose an image' hint='JPG, PNG or WebP' %}
+
+{% include 'baiter_app/_results.html' with source=description source_title='Image description' media_kind='image' %}
+
+{% endblock %}

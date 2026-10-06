@@ -1,0 +1,16 @@
+{% extends 'baiter_app/base.html' %}
+
+{% block title %}Baiter — Video{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>Turn a video into headlines</h1>
+    <p>Upload a clip. Baiter summarizes what happens, then writes five headlines from the summary.</p>
+</div>
+
+{% include 'baiter_app/_upload.html' with field='video' accept='video/*' prompt='Choose a video' hint='MP4, AVI or MOV' %}
+
+{% include 'baiter_app/_results.html' with source=description source_title='Video description' media_kind='video' %}
+
+{% endblock %}
