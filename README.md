@@ -123,7 +123,7 @@ baiter/
 Клонировать репозиторий:
 
 ```bash
-git clone https://github.com/hapendkk/ml-project.git
+git clone https://github.com/hapendkk/baiter
 cd ml-project
 ```
 
